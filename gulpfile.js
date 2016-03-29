@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
   coffee = require('gulp-coffee'),
   sass = require('gulp-sass'),
-  runSequence = require('run-sequence');
+  runSequence = require('run-sequence'),
+  jasmine = require('gulp-jasmine');
 
 gulp.task('js', function () {
   gulp.src('app/src/**/*.coffee')
@@ -21,5 +22,12 @@ gulp.task('watch', function(){
 });
 
 gulp.task('default', function(callback) {
-  runSequence(['css', 'js'], 'watch', callback)
+  runSequence(['css', 'js', 'test'], 'watch', callback)
+});
+
+
+require('coffee-script/register');
+gulp.task('test', function() {
+  gulp.src('test/**/*.coffee')
+    .pipe(jasmine());
 });
