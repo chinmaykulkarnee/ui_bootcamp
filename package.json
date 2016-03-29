@@ -1,0 +1,23 @@
+{
+  "name": "ui_bootcamp",
+  "version": "0.0.1",
+  "description": "ui bootcamp project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.1",
+    "gulp-sass": "^2.2.0",
+    "gulp-util": "^3.0.7",
+    "jasmine": "^2.4.1",
+    "run-sequence": "^1.1.5"
+  }
+}
