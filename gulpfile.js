@@ -2,12 +2,16 @@ var gulp = require('gulp'),
   coffee = require('gulp-coffee'),
   sass = require('gulp-sass'),
   runSequence = require('run-sequence'),
-  jasmine = require('gulp-jasmine');
+  jasmine = require('gulp-jasmine'),
+  browserify = require('gulp-browserify'),
+  rename = require('gulp-rename'),
+  coffeeify = require('coffeeify');
 
 gulp.task('js', function () {
-  gulp.src('app/src/**/*.coffee')
-    .pipe(coffee())
-    .pipe(gulp.dest('public/js'));
+  gulp.src('app/src/index.coffee', {read: false})
+    .pipe( browserify({transform: ['coffeeify'], extensions: ['.coffee']}) )
+    .pipe( rename({extname: '.js'}) )
+    .pipe( gulp.dest('public/js') );
 });
 
 gulp.task('css', function () {
@@ -22,7 +26,7 @@ gulp.task('watch', function(){
 });
 
 gulp.task('default', function(callback) {
-  runSequence(['css', 'js', 'test'], 'watch', callback)
+  runSequence(['css', 'js'], 'watch', callback)
 });
 
 

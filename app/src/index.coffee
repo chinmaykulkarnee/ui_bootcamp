@@ -1,2 +1,4 @@
-number   = 42
-opposite = true
+FlickrService  = require '../src/services/FlickrService'
+#FlickrService  = require '../src/not_FlickrService'
+
+FlickrService.getImages 'sunrise'
