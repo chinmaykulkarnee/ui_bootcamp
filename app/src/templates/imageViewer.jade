@@ -1,0 +1,6 @@
+script(id="results-view" type="text/x-handlebars-template")
+    {{#each images}}
+    img(src='{{url}}', alt='')
+    p
+        | {{title}}
+    {{/each}}
