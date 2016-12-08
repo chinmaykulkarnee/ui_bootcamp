@@ -10,3 +10,4 @@ testconfig.json
 failures
 screenshots/base_images/*
 screenshots/diff_images/*
+tmp/

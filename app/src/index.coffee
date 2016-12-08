@@ -8,9 +8,9 @@ FlickrService  = require '../src/services/FlickrService'
 #    template = handleBars.compile($("#results-view").html())
 #    $("body").html(template(images: images))
 
-FlickrService.getImages 'sunrise', (images) ->
+FlickrService.getImages 'sandhan valley', (images) ->
   viewImages = (images) ->
-    template = handleBars.compile($("#results-view").html())
-    $("body").html(template(images: images))
+    template = handleBars.compile($('#results-view').html())
+    $(".content").html(template(images: images))
 
   viewImages images

@@ -1,6 +1,8 @@
 script(id="results-view" type="text/x-handlebars-template")
     {{#each images}}
-    img(src='{{url}}', alt='')
-    p
-        | {{title}}
+    .card
+        .card-image
+            img(src='{{url}}', alt='')
+        .card-header
+            | {{title}}
     {{/each}}

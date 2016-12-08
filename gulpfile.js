@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
   coffee = require('gulp-coffee'),
   sass = require('gulp-sass'),
+  sassLint = require('gulp-sass-lint'),
   runSequence = require('run-sequence'),
   jasmine = require('gulp-jasmine'),
   browserify = require('gulp-browserify'),
@@ -16,6 +17,9 @@ gulp.task('js', function () {
 
 gulp.task('css', function () {
   gulp.src('app/styles/**/*.sass')
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
     .pipe(sass())
     .pipe(gulp.dest('public/css'));
 });
